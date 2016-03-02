@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Introduction to Python Programming language</title>
+
+	<meta name="description" content="Introduction to Python Programming language for basic users having little knowledge of programming.">
+	<meta name="author" content="Dwij IT Solutions / Ganesh Bhosale">
+	
+	<meta property="og:url"           content="" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Introduction to Python Programming language" />
+    <meta property="og:description"   content="Introduction to Python Programming language for basic users having little knowledge of programming." />
+    <meta property="og:image"         content="" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<!-- help : http://lab.hakim.se/reveal-js -->
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+	
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1684314365174532";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>Python Practice</h1>
+				<h3>on Raspberry Pi</h3>
+				<p>
+					<small>Created by <a target="_blank" href="http://ganeshbhosale.com">Ganesh Bhosale</a> in <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a></small><br>
+					<a href="http://dwijitsolutions.com" target="_blank">
+						<img src="images/dwij-it-solutions.png" alt="Dwij IT Solutions Logo">
+					</a>
+				</p>
+			</section>
+			
+			<section>
+				<h2>Your support</h2>
+				<p>
+					Like this <a class="cred">Python on Raspberry Pi</a> tutorial, our tutorials are always open-source for learners. Like our facebook page to get more free tutorial updates.
+				</p>
+				<p>
+					<div class="fb-page" data-href="https://www.facebook.com/dwijitsolutions" data-width="330" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/dwijitsolutions"><a href="https://www.facebook.com/dwijitsolutions">Dwij IT Solutions</a></blockquote></div></div>
+					<br><br><br>
+				</p>
+			</section>
+
+			<section>
+				<h2>Python</h2>
+				<p>
+					<a class="cred">Python</a> is a widely used general-purpose, high-level programming language that lets you work more quickly and integrate your systems more effectively.
+				</p>
+				<p>
+					Its design philosophy emphasises <a target="_blank" href="http://code.tutsplus.com/tutorials/top-15-best-practices-for-writing-super-readable-code--net-8118">code readability</a>, and its syntax allows programmers to express concepts in fewer lines of code
+				</p>
+			</section>
+			
+			<section>
+				<h2>References</h2>
+				<ul>
+					<li><a target="_blank" href="https://www.python.org">python.org</a></li>
+					<li><a target="_blank" href="https://"></a></li>
+					<li><a target="_blank" href="https://"></a></li>
+					<li><a target="_blank" href="https://"></a></li>
+				</ul>
+			</section>
+
+			<section style="text-align: left;">
+				<h1>Thank you</h1>
+				<p>
+					- <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a> <br>
+					- <a target="_blank" href="https://ganeshbhosale.com">Ganesh Bhosale</a>
+				</p>
+				<!--<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>-->
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	
+	<div class="share-reveal">
+		<a target="_blank" class="share-reveal-editor" href="http://dwijitsolutions.com">Powered by Dwij IT Solutions</a>
+		<a target="_blank" class="share-reveal-facebook" href="https://www.facebook.com/DwijItSolutions">
+			<svg viewBox="-8 -8 48 48" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<path fill="#FFFFFF" d="M25.613-4.557c0,0-3.707,0-6.166,0c-3.662,0-7.732,1.535-7.732,6.835c0.019,1.845,0,3.613,0,5.603H7.481 v6.728h4.366v19.37h8.021V14.48h5.295l0.479-6.618h-5.913c0,0,0.016-2.946,0-3.8c0-2.093,2.184-1.974,2.312-1.974 c1.042,0,3.059,0.003,3.578,0v-6.646H25.613z"/>
+			</svg>
+		</a>
+	</div>	
+</body>
+</html>
