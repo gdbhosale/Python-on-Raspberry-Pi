@@ -8,12 +8,13 @@
 
 	<meta name="description" content="Introduction to Python Programming on Raspberry Pi for basic users having little knowledge of programming.">
 	<meta name="author" content="Dwij IT Solutions / Ganesh Bhosale">
-	
-	<meta property="og:url"           content="" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Introduction to Python Programming on Raspberry Pi" />
-    <meta property="og:description"   content="Introduction to Python Programming on Raspberry Pi for basic users having little knowledge of programming." />
-    <meta property="og:image"         content="" />
+
+	<meta property="og:url" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Introduction to Python Programming on Raspberry Pi" />
+	<meta property="og:description" content="Introduction to Python Programming on Raspberry Pi for basic users having little knowledge of programming."
+	/>
+	<meta property="og:image" content="" />
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -23,7 +24,7 @@
 	<!-- help : http://lab.hakim.se/reveal-js -->
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css" id="theme">
-	
+
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 
 	<!-- Code syntax highlighting -->
@@ -44,14 +45,16 @@
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
+	<div id="fb-root"></div>
+	<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1684314365174532";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 	<div class="reveal">
 
@@ -61,21 +64,30 @@
 				<h1>Python Practice</h1>
 				<h3>on Raspberry Pi</h3>
 				<p>
-					<small>Created by <a target="_blank" href="http://ganeshbhosale.com">Ganesh Bhosale</a> in <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a></small><br>
+					<small>Created by <a target="_blank" href="http://ganeshbhosale.com">Ganesh Bhosale</a> in <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a></small>
+					<br>
 					<a href="http://dwijitsolutions.com" target="_blank">
 						<img src="images/dwij-it-solutions.png" alt="Dwij IT Solutions Logo">
 					</a>
 				</p>
 			</section>
-			
+
 			<section>
 				<h2>Your support</h2>
 				<p>
-					Like this <a class="cred">Python on Raspberry Pi</a> tutorial, our tutorials are always open-source for learners. Like our facebook page to get more free tutorial updates.
+					Like this <a class="cred">Python on Raspberry Pi</a> tutorial, our tutorials are always open-source for learners. Like
+					our facebook page to get more free tutorial updates.
 				</p>
 				<p>
-					<div class="fb-page" data-href="https://www.facebook.com/dwijitsolutions" data-width="330" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/dwijitsolutions"><a href="https://www.facebook.com/dwijitsolutions">Dwij IT Solutions</a></blockquote></div></div>
-					<br><br><br>
+					<div class="fb-page" data-href="https://www.facebook.com/dwijitsolutions" data-width="330" data-small-header="false" data-adapt-container-width="true"
+					data-hide-cover="false" data-show-facepile="true">
+						<div class="fb-xfbml-parse-ignore">
+							<blockquote cite="https://www.facebook.com/dwijitsolutions"><a href="https://www.facebook.com/dwijitsolutions">Dwij IT Solutions</a></blockquote>
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
 				</p>
 			</section>
 
@@ -89,20 +101,152 @@
 				</ul>
 			</section>
 			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>OpenCV (Computer Vision) Programming using Python</h2>
+				<img src="images/python-snake-1.png" width="300">
+			</section>
+			
+			<section>
+				<h2>Installation of OpenCV</h2>
+				<ul class="left-align">
+					<li>Linux*</li>
+					<li>Windows</li>
+					<li>Mac OSX</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>OpenCV Installation on Linux</h2>
+				<ul class="left-align">
+					<li>Download OpenCV from <a href="http://opencv.org/downloads.html" target="_blank">http://opencv.org/downloads.html</a></li>
+					<li>Details <a href="http://docs.opencv.org/2.4/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation" target="_blank">install documentation</a> here.</li>
+					<li>Requirements: GCC 4.4.x or later, CMake 2.6 or higher, Python 2.6 or later, Git</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Downloading dependancies (Linux)</h2>
+				<pre><code>
+$ sudo apt-get install build-essential
+$ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+$ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>INSTALL START (Linux)</h2>
+				<p>Unzip the donwloaded file.</p>
+				<pre><code>
+$ cd /opencv
+$ mkdir release
+$ cd release
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_NEW_PYTHON_SUPPORT=ON -D BUILD_EXAMPLES=ON ..
+				</code></pre>
+				<p>Dont forget <a class="cred">BUILD_NEW_PYTHON_SUPPORT=ON</a></p>
+			</section>
+			
+			<section>
+				<h2>INSTALL FINISHING (Linux)</h2>
+				<pre><code>
+$ make
+$ sudo make install
+				</code></pre>
+			</section>
+			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>OpenCV Programming</h2>
+			</section>
+			
+			<section>
+				<h2>Opening Image</h2>
+				<pre><code>import cv2 as cv
+
+cv.namedWindow("camera", 1)
+
+img = cv.LoadImage ("test.png")
+
+cv.ShowImage("camera", img)
+cv.WaitKey(0)
+cv.DestroyAllWindows()
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Capture Image from Camera</h2>
+				<pre><code>import cv
+import time
+
+capture = cv.CaptureFromCAM(0)
+
+width = 640
+height = 480
+
+cv.SetCaptureProperty(capture,cv.CV_CAP_PROP_FRAME_WIDTH,width)
+cv.SetCaptureProperty(capture,cv.CV_CAP_PROP_FRAME_HEIGHT,height)
+
+if capture:
+    cv.NamedWindow("camera", 1)
+    
+    print "Press any key to start..."
+    cv.WaitKey(0);
+    
+    img = cv.QueryFrame(capture)
+    if not img:
+        print "Frame is NULL"
+    else:
+        cv.ShowImage("camera", img)
+        cv.WaitKey(0)
+else:
+    print "Capture is NULL"
+
+cv.DestroyAllWindows()
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Capture Camera Video</h2>
+				<pre><code>import cv
+import time
+
+cv.NamedWindow("camera", 1)
+
+capture = cv.CreateCameraCapture(0)
+#capture = cv.CaptureFromFile("tera.mp4")
+
+width = 160
+height = 120
+
+cv.SetCaptureProperty(capture,cv.CV_CAP_PROP_FRAME_WIDTH,width)
+cv.SetCaptureProperty(capture,cv.CV_CAP_PROP_FRAME_HEIGHT,height)
+
+if capture:
+    while True:
+        img = cv.QueryFrame(capture)
+        cv.ShowImage("camera", img)
+        if cv.WaitKey(10) == 27:
+            break
+else:
+    print "Capture is NULL"
+
+cv.DestroyAllWindows()
+
+				</code></pre>
+			</section>
+
 			<section>
 				<h2>References</h2>
 				<ul>
 					<li><a target="_blank" href="https://www.python.org">python.org</a></li>
 					<li><a target="_blank" href="http://raspberrypi.org/">raspberrypi.org</a></li>
-					<li><a target="_blank" href="https://dwij.co.in">dwij.co.in</a></li>
+					<li><a target="_blank" href="http://opencv.org">opencv.org</a></li>
 				</ul>
 			</section>
 
 			<section style="text-align: left;">
 				<h1>Thank you</h1>
 				<p>
-					- <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a> <br>
-					- <a target="_blank" href="https://ganeshbhosale.com">Ganesh Bhosale</a>
+					- <a target="_blank" href="http://dwijitsolutions.com">Dwij IT Solutions</a>
+					<br> - <a target="_blank" href="https://ganeshbhosale.com">Ganesh Bhosale</a>
 				</p>
 				<p>Did you liked this tutorial ?</p>
 				<p>
@@ -138,14 +282,16 @@
 			]
 		});
 	</script>
-	
+
 	<div class="share-reveal">
 		<a target="_blank" class="share-reveal-editor" href="http://dwijitsolutions.com">Powered by Dwij IT Solutions</a>
 		<a target="_blank" class="share-reveal-facebook" href="https://www.facebook.com/DwijItSolutions">
 			<svg viewBox="-8 -8 48 48" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
-				<path fill="#FFFFFF" d="M25.613-4.557c0,0-3.707,0-6.166,0c-3.662,0-7.732,1.535-7.732,6.835c0.019,1.845,0,3.613,0,5.603H7.481 v6.728h4.366v19.37h8.021V14.48h5.295l0.479-6.618h-5.913c0,0,0.016-2.946,0-3.8c0-2.093,2.184-1.974,2.312-1.974 c1.042,0,3.059,0.003,3.578,0v-6.646H25.613z"/>
+				<path fill="#FFFFFF" d="M25.613-4.557c0,0-3.707,0-6.166,0c-3.662,0-7.732,1.535-7.732,6.835c0.019,1.845,0,3.613,0,5.603H7.481 v6.728h4.366v19.37h8.021V14.48h5.295l0.479-6.618h-5.913c0,0,0.016-2.946,0-3.8c0-2.093,2.184-1.974,2.312-1.974 c1.042,0,3.059,0.003,3.578,0v-6.646H25.613z"
+				/>
 			</svg>
 		</a>
-	</div>	
+	</div>
 </body>
+
 </html>
