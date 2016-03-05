@@ -1182,6 +1182,8 @@ body {
  * DWIJ CHANGES
  *********************************************/
  
+ code.overflow{word-wrap:break-word !important;}
+ 
  .cred{color:#F56767 !important;}
  .cgreen{color:#11C332 !important;}
  .cblue{color:#42AFFA !important;}
