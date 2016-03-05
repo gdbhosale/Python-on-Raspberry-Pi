@@ -12,8 +12,7 @@
 	<meta property="og:url" content="" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Introduction to Python Programming on Raspberry Pi" />
-	<meta property="og:description" content="Introduction to Python Programming on Raspberry Pi for basic users having little knowledge of programming."
-	/>
+	<meta property="og:description" content="Introduction to Python Programming on Raspberry Pi for basic users having little knowledge of programming."/>
 	<meta property="og:image" content="" />
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -90,20 +89,104 @@
 					<br>
 				</p>
 			</section>
+			
+			<section>
+				<h2>From Python</h2>
+				<ul class="left-align">
+					<li>In Earlier presentation you have learned the basics of python</li>
+					<li>Now we will go for various uses of python over RPi Hardware and more advanced stuff.</li>
+				</ul>
+			</section>
 
 			<section>
 				<h2>What are we going to learn:</h2>
 				<ul class="left-align">
-					<li>Python libraries for Raspberry Pi</li>
-					<li>GPIO Programming</li>
-					<li>OpenCV (Computer Vision) Programming</li>
+					<li>Various Python libraries for Raspberry Pi</li>
+					<li>GPIO programming</li>
+					<li>OpenCV (Computer Vision) programming</li>
 					<li>TKinter (User Interfaces)</li>
 				</ul>
 			</section>
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
-				<h2>OpenCV (Computer Vision) Programming using Python</h2>
+				<h2>Python libraries for Raspberry Pi</h2>
 				<img src="images/python-snake-1.png" width="300">
+			</section>
+			
+			<section>
+				<h2>Python & Internet</h2>
+				<ul class="left-align">
+					<li>Use of HTTP (Hypertext Transfer Protocol)</li>
+					<li>We need python-requests library. Lets install.</li>
+					<li><pre><code>sudo apt-get install python-requests</code></pre></li>
+					<li>Now open interpreter and import this library</li>
+				</ul>
+				<pre><code data-trim class="python">
+>>> import requests as req
+>>> r = req.get("http://google.com")
+>>> r.status_code
+200
+>>> r.text 	# Print data fetched from site
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Request Status Codes</h2>
+				<table>
+					<tr><th>Code</th><th>Meaning</th></tr>
+					<tr><td>200</td><td>OK</td></tr>
+					<tr><td>301</td><td>Moved Permanently</td></tr>
+					<tr><td>307</td><td>Moved Temporary</td></tr>
+					<tr><td>401</td><td>Unauthorized</td></tr>
+					<tr><td>404</td><td>Not Found</td></tr>
+					<tr><td>500</td><td>Server Error</td></tr>
+				</table>
+			</section>
+			
+			<section>
+				<h2>Weather Data Access</h2>
+				<ul class="left-align">
+					<li>We can use <a href="http://openweathermap.org/current">http://openweathermap.org/current</a></li>
+					<li>We need web service link:</li>
+					<li><pre><code>http://api.openweathermap.org/data/2.5/weather?q=Pune&appid=44db6a862fba0b067b1930da0d769e98</code></pre></li>
+					<li>This will give information in JSON (JavaScript Object Notation) Format like below:</li>
+				</ul>
+				<pre><code data-trim class="overflow java">
+{"coord":{"lon":73.86,"lat":18.52},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":291.988,"pressure":950.59,"humidity":52,"temp_min":291.988,"temp_max":291.988,"sea_level":1025.4,"grnd_level":950.59},"wind":{"speed":2.31,"deg":279.501},"clouds":{"all":0},"dt":1457198019,"sys":{"message":0.0101,"country":"IN","sunrise":1457140797,"sunset":1457183515},"id":1259229,"name":"Pune","cod":200}
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Program</h2>
+				<ul class="left-align">
+					<li>Temperature in Kelvin; C = K – 273.15 </li>
+				</ul>
+				<pre><code data-trim class="python">
+>>> import requests as rq
+>>> r = rq.get("http://api.----/weather?q=Pune&appid=1111")
+>>> info = r.json
+>>> print info['main']['temp']
+294.14
+>>>
+				</code></pre>
+				<ul class="left-align">
+					<li>Use this site to understand the json: <a href="http://json.parser.online.fr">http://json.parser.online.fr</a></li>
+				</ul>
+			</section>
+			
+			
+			
+			
+			
+			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>GPIO programming</h2>
+				<img src="images/python-snake-2.png" width="300">
+			</section>
+			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>OpenCV (Computer Vision) Programming using Python</h2>
+				<img src="images/opencv-python.png" width="300">
 			</section>
 			
 			<section>
