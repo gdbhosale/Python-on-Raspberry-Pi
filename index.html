@@ -183,11 +183,10 @@
 			<section>
 				<h2>Enable SSH on RPi</h2>
 				<ul class="left-align">
-					<li>Run script after auto-login </li>
-					<li><pre><code>$ sudo nano /etc/profile</code></pre></li>
-					<li>NoteAdd new line</li>
-					<li><pre><code>/home/pi/your_script_name.sh</code></pre></li>
-					<li>Save File by Ctrl + O and Ctrl + X</li>
+					<li>Enter following command in the terminal </li>
+					<li><pre><code>$ sudo raspi-config</code></pre></li>
+					<li>Navigate to Advanced Settings -> ssh. Hit Enter</li>
+					<li>Enable ssh server</li>
 				</ul>
 			</section>
 			
@@ -457,17 +456,145 @@ root.mainloop()
 				</ul>
 			</section>
 			
-			
-			
-			
-			
-			
-			
-			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
 				<h2>GPIO programming</h2>
 				<img src="images/rpi-logo.png" class="nostyle" width="300">
 			</section>
+			
+			<section>
+				<h2>GPIO</h2>
+				<h5>(General Purpose Input Output)</h5>
+				<ul class="left-align">
+					<li>Pins provided for external interfacing</li>
+					<li>Python will let you access the pins by using Module called <a class="cred">RPi.GPIO</a></li>
+					<li>It comes pre in-built. If not, use following commands with internet connectivity.</li>
+				</ul>
+				<pre class="fullw"><code data-trim class="python">
+$ sudo apt-get install python-rpi.gpio
+$ sudo apt-get update
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>WARNING</h2>
+				<ul class="left-align">
+					<li>Do not short the GPIO Pins of RPi. Short circuit may damage your hardware.</li>
+					<li>Do not connect LED or any other component directly without resisters in series.</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2 class="ttn">Using GPIO Library</h2>
+				<pre class="fullw"><code data-trim class="python">
+#import library
+import RPi.GPIO as GPIO
+
+# set GPIO mode to BCM (Broadcom SOC channel)
+GPIO.setmode(GPIO.BCM)
+
+# set GPIO direction as Output
+GPIO.setup(25, GPIO.OUT)
+
+# set GPIO pin output as Low
+GPIO.output(25, GPIO.LOW)
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2 class="ttn">blink.py</h2>
+				<pre class="fullw"><code data-trim class="python">
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(25, GPIO.OUT)
+
+while True:
+    GPIO.output(25, GPIO.LOW)
+    time.sleep(1)
+    GPIO.output(25, GPIO.HIGH)
+    time.sleep(1)
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2 class="ttn">button.py</h2>
+				<pre class="fullw"><code data-trim class="python">
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+GPIO.setup(7, GPIO.OUT)
+GPIO.setup(8, GPIO.IN)
+
+count = 0
+
+while True:
+    val = GPIO.input(8)
+    if(val == False):
+        count = count + 1
+        print("Button pressed.", str(count))
+        GPIO.output(7, GPIO.HIGH)
+    else:
+        GPIO.output(7, GPIO.LOW)
+    time.sleep(0.01)
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2 class="ttn">button_sound.py</h2>
+				<pre class="fullw"><code data-trim class="python">
+import pygame.mixer as mx
+import RPi.GPIO as GPIO
+from time import sleep
+from sys import exit
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+GPIO.setup(7, GPIO.OUT)
+GPIO.setup(8, GPIO.IN)
+
+mx.init(48000, -16, 1, 1024)
+
+sound1 = mx.Sound("/usr/share/sounds/alsa/Front_Center.wav")
+
+soundCh = mx.Channel(1)
+
+while True:
+    try:
+        if(GPIO.input(8) == True):
+            soundCh.play(sound1)
+            GPIO.output(7, GPIO.HIGH)
+        sleep(0.01)
+    except KeyboardInterrupt:
+        GPIO.output(7, GPIO.LOW)
+        exit()
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Enabling sound via Sound Port</h2>
+				<ul class="left-align">
+					<li>Via analog output port</li>
+					<li><pre><code>$ sudo amixer cset numid=3 1</code></pre></li>
+					<li>Via HDMI Cable</li>
+					<li><pre><code>$ sudo amixer cset numid=3 2</code></pre></li>
+				</ul>
+			</section>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
