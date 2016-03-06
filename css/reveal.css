@@ -1195,6 +1195,8 @@ body {
  
  .reveal section .fullw{width:100%;}
  
+ .reveal pre.fullh code{max-height:570px !important;}
+ 
  .reveal section li pre{width:100%;}
  
  .left-align{text-align:left;}
