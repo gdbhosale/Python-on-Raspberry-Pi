@@ -181,6 +181,17 @@
 			</section>
 			
 			<section>
+				<h2>Enable SSH on RPi</h2>
+				<ul class="left-align">
+					<li>Run script after auto-login </li>
+					<li><pre><code>$ sudo nano /etc/profile</code></pre></li>
+					<li>NoteAdd new line</li>
+					<li><pre><code>/home/pi/your_script_name.sh</code></pre></li>
+					<li>Save File by Ctrl + O and Ctrl + X</li>
+				</ul>
+			</section>
+			
+			<section>
 				<h2>Auto mounting Pen-drives</h2>
 				<ul class="left-align">
 					<li>Enable bash commands:</li>
@@ -379,6 +390,79 @@ wlan0     Link encap:Ethernet  HWaddr e8:4e:06:0d:c8:17
 				<h2>TKinter (User Interfaces)</h2>
 				<img src="images/tkinter-window.png" height="300">
 			</section>
+			
+			<section>
+				<h2>TKinter</h2>
+				<ul class="left-align">
+					<li>Only works in LXDE Graphics Environment</li>
+					<li>Its in-built in Ubuntu, Rasbian & Mac</li>
+					<li>More information about TKinter on <a href="https://wiki.python.org/moin/TkInter">https://wiki.python.org/moin/TkInter</a></li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Key & mouse events</h2>
+				<img class="nostyle" src="images/tkinter-keyboard-mouse-click-detection.png" height="300">
+			</section>
+			
+			<section>
+				<p>Key & mouse events</p>
+				<pre class="fullw"><code data-trim class="python">
+from Tkinter import *
+root = Tk()
+
+def key(event):
+    print "pressed", repr(event.char), " keysym", event.keysym
+
+def callback(event):
+    frame.focus_set()
+    print "clicked at", event.x, event.y
+
+frame = Frame(root, width=100, height=100)
+frame.bind("&lt;Key&gt;", key)		# bind event for key -> key()
+frame.bind("&lt;Button-1&gt;", callback)	# bind event for mouse -> callback()
+frame.pack()
+root.mainloop()
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Button & Its Events</h2>
+				<img class="nostyle" src="images/tkinter-button-event.png" height="300">
+			</section>
+			
+			<section>
+				<p>Button & Its Events</p>
+				<pre class="fullw"><code data-trim class="python">
+from Tkinter import *
+
+def Call():
+        lab= Label(root, text = 'You pressed\nthe button')
+        lab.pack()
+        button['bg'] = 'blue'
+        button['fg'] = 'white'
+root = Tk()
+root.geometry('100x110+350+70')
+button = Button(root, text = 'Press me', command = Call)
+button.pack()
+
+root.mainloop()
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>TKinter</h2>
+				<ul class="left-align">
+					<li>More such example on <a href="https://wiki.python.org/moin/Intro%20to%20programming%20with%20Python%20and%20Tkinter">wiki.python.org</a></li>
+				</ul>
+			</section>
+			
+			
+			
+			
+			
+			
+			
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
 				<h2>GPIO programming</h2>
