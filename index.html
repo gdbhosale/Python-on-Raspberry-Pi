@@ -91,7 +91,7 @@
 			</section>
 			
 			<section>
-				<h2>From Python</h2>
+				<h2>From Python to RPi</h2>
 				<ul class="left-align">
 					<li>In Earlier presentation you have learned the basics of python</li>
 					<li>Now we will go for various uses of python over RPi Hardware and more advanced stuff.</li>
@@ -102,15 +102,15 @@
 				<h2>What are we going to learn:</h2>
 				<ul class="left-align">
 					<li>Various Python libraries for Raspberry Pi</li>
-					<li>GPIO programming</li>
 					<li>Hardware Setups (WiFi, USB)</li>
-					<li>OpenCV (Computer Vision) programming</li>
 					<li>TKinter (User Interfaces)</li>
+					<li>GPIO programming</li>
+					<li>OpenCV (Computer Vision) programming</li>
 				</ul>
 			</section>
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
-				<h2>Python libraries for Raspberry Pi</h2>
+				<h2 class="tdn">Python libraries for<br>Raspberry Pi</h2>
 				<img src="images/python-snake-1.png" width="300">
 			</section>
 			
@@ -173,16 +173,6 @@
 				<ul class="left-align">
 					<li>Use this site to understand the json: <a href="http://json.parser.online.fr">http://json.parser.online.fr</a></li>
 				</ul>
-			</section>
-			
-			
-			
-			
-			
-			
-			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
-				<h2>GPIO programming</h2>
-				<img src="images/rpi-logo.png" class="nostyle" width="300">
 			</section>
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
@@ -301,8 +291,9 @@ sudo python /home/pi/my_program.py
 			
 			<section>
 				<h2>WiFi Setup</h2>
+				<img src="images/WiFi-EDUP.png" class="nostyle" alt="WiFi EDUP Dongle for Raspberry Pi">
 				<ul class="left-align">
-					<li>Use WiFi Dongle from <a class="cred">EDUP</a></li>
+					<li>Use WiFi Dongle from <a class="cred">EDUP</a>. EDUP 802.11n</li>
 					<li>Plug this dongle in one of USB Port</li>
 					<li>To check weather wifi device is connected, use command <a class="cred">lsusb</a>. This will list all usb devices. Make sure yours is connected.</li>
 					<li>To check if wifi is detected run <a class="cred">ifconfig</a> command</li>
@@ -371,9 +362,28 @@ wlan0     Link encap:Ethernet  HWaddr e8:4e:06:0d:c8:17
 				</ul>
 			</section>
 			
+			<section>
+				<h2>Date & Time Setup</h2>
+				<ul class="left-align">
+					<li>Raspberry Pi doesn’t have in-built RTC</li>
+					<li>So it can’t show current time by itself</li>
+					<li>Either we need to set time after an interval or use Real Time Clock (RTC) Hardware for time</li>
+					<li>How to Set Time manually:</li>
+					<li><pre><code>$ sudo date --set="Sat Aug 16 1:55:16 EDT 2014"</code></pre></li>
+					<li>How to check current Date:</li>
+					<li><pre><code>$ date</code></pre></li>
+				</ul>
+			</section>
 			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>TKinter (User Interfaces)</h2>
+				<img src="images/tkinter-window.png" height="300">
+			</section>
 			
-			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>GPIO programming</h2>
+				<img src="images/rpi-logo.png" class="nostyle" width="300">
+			</section>
 			
 			
 			

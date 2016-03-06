@@ -1189,6 +1189,8 @@ body {
  .cblue{color:#42AFFA !important;}
  .cwhite{color:#FFF !important;}
  
+ .ttn{text-transform:none;}
+ 
  .reveal section img.nostyle{box-shadow:none;border:none;background:none;}
  
  .reveal section .fullw{width:100%;}
