@@ -1189,6 +1189,12 @@ body {
  .cblue{color:#42AFFA !important;}
  .cwhite{color:#FFF !important;}
  
+ .reveal section img.nostyle{box-shadow:none;border:none;background:none;}
+ 
+ .reveal section pre.fullw{width:100%;}
+ 
+ .reveal section li pre{width:100%;}
+ 
  .left-align{text-align:left;}
  
  .reveal ul li{line-height:1.5em;}

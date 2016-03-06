@@ -103,6 +103,7 @@
 				<ul class="left-align">
 					<li>Various Python libraries for Raspberry Pi</li>
 					<li>GPIO programming</li>
+					<li>Hardware Setups (WiFi, USB)</li>
 					<li>OpenCV (Computer Vision) programming</li>
 					<li>TKinter (User Interfaces)</li>
 				</ul>
@@ -181,12 +182,206 @@
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
 				<h2>GPIO programming</h2>
-				<img src="images/python-snake-2.png" width="300">
+				<img src="images/rpi-logo.png" class="nostyle" width="300">
 			</section>
 			
 			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
+				<h2>Hardware Setups</h2>
+				<img src="images/rpi-logo.png" class="nostyle" width="300">
+			</section>
+			
+			<section>
+				<h2>Auto mounting Pen-drives</h2>
+				<ul class="left-align">
+					<li>Enable bash commands:</li>
+					<li><pre><code>sudo bash</code></pre></li>
+					<li>Install library <a class="cred">usbmount</a> using apt-get</li>
+					<li><pre><code>sudo apt-get install usbmount</code></pre></li>
+					<li>Check for usb devices</li>
+					<li><pre><code>df -h</code></pre></li>
+				</ul>
+			</section>
+			
+			<section>
+				<pre><code data-trim>
+root@raspberrypi:/home/pi/practice2/usb# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+rootfs          7.2G  4.0G  2.9G  58% /
+/dev/root       7.2G  4.0G  2.9G  58% /
+devtmpfs        180M     0  180M   0% /dev
+tmpfs            38M  212K   38M   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs            75M     0   75M   0% /run/shm
+/dev/mmcblk0p1   56M   19M   38M  34% /boot
+root@raspberrypi:/home/pi/practice2/usb# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+rootfs          7.2G  4.0G  2.9G  58% /
+/dev/root       7.2G  4.0G  2.9G  58% /
+devtmpfs        180M     0  180M   0% /dev
+tmpfs            38M  224K   38M   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs            75M     0   75M   0% /run/shm
+/dev/mmcblk0p1   56M   19M   38M  34% /boot
+/dev/sda1       2.0G     0  2.0G   0% /media/usb0 # Device found
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Unmount USB by Commands</h2>
+				<ul class="left-align">
+					<li>Before un-mounting make sure you got correct address</li>
+					<li>Check devices using df -h</li>
+				</ul>
+				<pre><code data-trim class="python">
+$ sudo umount /dev/sda1
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Unmount USB via Python</h2>
+				<ul class="left-align">
+					<li>Before un-mounting make sure you got correct address</li>
+					<li>Here we need to load module subprocess</li>
+				</ul>
+				<pre><code data-trim class="python">
+>>> from subprocess import call
+>>> call(["umount", "/dev/sdb1"])
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>Start Program at Rpi boot</h2>
+				<ul class="left-align">
+					<li>Here we are going to create new Cron Job</li>
+					<li>Cron Jobs execute themselves when their time comes up</li>
+					<li>To edit cron job file</li>
+					<li><pre><code>$ sudo crontab -e</code></pre></li>
+					<li>Now put new line into file like below</li>
+					<li><pre><code>@reboot python /home/pi/MyScript.py &</code></pre></li>
+					<li>Make sure you don’t create infinite processes here</li>
+					<li>Note: Only parallel programs without keyboard activity</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Start Program at Rpi boot 2</h2>
+				<ul class="left-align">
+					<li>Make system auto-login</li>
+					<li><pre><code>$ sudo nano /etc/inittab</code></pre></li>
+					<li>Comment this line</li>
+					<li><pre><code>#1:2345:respawn:/sbin/getty 115200 tty1</code></pre></li>
+					<li>Add new line</li>
+					<li><pre><code>1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1</code></pre></li>
+					<li>Save File by Ctrl + O and Ctrl + X</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Start Program at Rpi boot 2</h2>
+				<ul class="left-align">
+					<li>Run script after auto-login </li>
+					<li><pre><code>$ sudo nano /etc/profile</code></pre></li>
+					<li>NoteAdd new line</li>
+					<li><pre><code>/home/pi/your_script_name.sh</code></pre></li>
+					<li>Save File by Ctrl + O and Ctrl + X</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Create Shell Script to execute program</h2>
+				<ul class="left-align">
+					<li>Inside file <a class="cred">your_script_name.sh</a></li>
+				</ul>
+				<pre><code data-trim class="python">
+#!/bin/bash
+sleep 2
+sudo python /home/pi/my_program.py
+				</code></pre>
+			</section>
+			
+			<section>
+				<h2>WiFi Setup</h2>
+				<ul class="left-align">
+					<li>Use WiFi Dongle from <a class="cred">EDUP</a></li>
+					<li>Plug this dongle in one of USB Port</li>
+					<li>To check weather wifi device is connected, use command <a class="cred">lsusb</a>. This will list all usb devices. Make sure yours is connected.</li>
+					<li>To check if wifi is detected run <a class="cred">ifconfig</a> command</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2 style="text-transform:lowercase;">ifconfig</h2>
+				<pre><code data-trim class="fullw python">
+wlan0     Link encap:Ethernet  HWaddr e8:4e:06:0d:c8:17
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:77 errors:0 dropped:8 overruns:0 frame:0
+          TX packets:77 errors:0 dropped:3 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:11935 (11.6 KiB)  TX bytes:11935 (11.6 KiB)
+				</code></pre>
+				<ul class="left-align">
+					<li>No IP Address</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Step 1</h2>
+				<ul class="left-align">
+					<li>Run command:</li>
+					<li><pre><code>$ sudo nano /etc/network/interfaces</code></pre></li>
+					<li>You will see this:</li>
+				</ul>
+				<pre class="fullw"><code data-trim>
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+				</code></pre>
+			</section>
+			
+			<section>
+				<p>Edit this interfaces file to</p>
+				<pre class="fullw"><code data-trim>
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-ssid "My_WiFi_Name"
+wpa-psk "My_WiFi_Password"
+				</code></pre>
+			</section>
+			
+			<section>
+				<p>Now Reboot and check ifconfig</p>
+				<pre class="fullw"><code data-trim>
+wlan0     Link encap:Ethernet  HWaddr e8:4e:06:0d:c8:17
+          inet addr:192.168.0.102  Bcast:192.168.0.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:51 errors:0 dropped:2 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:1 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:8417 (8.2 KiB)  TX bytes:728 (728.0 B)
+				</code></pre>
+				<ul class="left-align">
+					<li>The IP means we have successfully connected to Wifi</li>
+				</ul>
+			</section>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<section data-background="#F56767" data-background-transition="zoom" data-transition="zoom">
 				<h2>OpenCV (Computer Vision) Programming using Python</h2>
-				<img src="images/opencv-python.png" width="300">
+				<img src="images/opencv-python.png" height="300">
 			</section>
 			
 			<section>
