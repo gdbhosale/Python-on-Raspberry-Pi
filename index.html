@@ -510,6 +510,14 @@ $ sudo apt-get update
 				<img src="images/gpio-led-pi2.png" class="nostyle" height="300">
 			</section>
 			
+			<section>
+				<h2>Root Access</h2>
+				<ul class="left-align">
+					<li>Run command:</li>
+					<li><pre><code>$ sudo su</code></pre></li>
+				</ul>
+			</section>
+			
 			
 			<section>
 				<h2 class="ttn">Using GPIO Library</h2>
@@ -548,6 +556,7 @@ while True:
 			
 			<section>
 				<h2 class="ttn">button.py</h2>
+				<p>Don’t forget the pull-down resistor, which goes between ground and the input pin</p>
 				<pre class="fullw"><code data-trim class="python">
 import RPi.GPIO as GPIO
 import time
