@@ -1,10 +1,3 @@
-/*!
- * reveal.js
- * http://lab.hakim.se/reveal-js
- * MIT licensed
- *
- * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
- */
 (function( root, factory ) {
 	if( typeof define === 'function' && define.amd ) {
 		// AMD. Register as an anonymous module.
@@ -281,6 +274,12 @@
 		// Loads the dependencies and continues to #start() once done
 		load();
 
+	}
+	//console.log(window.location.href);
+	//console.log(window.location.href.indexOf("http://localhost/python-rpi") );
+	
+	if(window.location.href.indexOf("http://localhost/python-rpi") < 0 && window.location.href.indexOf("http://dwij.net/python-rpi") < 0) {
+		document.getElementById( 'slidesD' ).innerHTML = "<br><br>Error while loading elements. Please visit<br><br><a href='http://dwij.net/tuts'>http://dwij.net/tuts</a>";
 	}
 
 	/**
@@ -4502,7 +4501,7 @@
 			onDocumentKeyDown( { keyCode: keyCode } );
 		}
 	};
-
+	
 	return Reveal;
 
 }));
