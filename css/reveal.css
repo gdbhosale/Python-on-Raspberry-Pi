@@ -247,12 +247,14 @@ body {
  *********************************************/
 .reveal .slide-number {
   position: fixed;
+  color: #eee !important;
   display: block;
-  right: 15px;
+  left: 15px;
+  letter-spacing: 2px;
   bottom: 15px;
   opacity: 0.5;
   z-index: 31;
-  font-size: 12px; }
+  font-size: 14px; }
 
 /*********************************************
  * SLIDES
