@@ -571,7 +571,7 @@ count = 0
 
 while True:
     val = GPIO.input(8)
-    if(val == True):
+    if(val == False):
         count = count + 1
         print("Button pressed.", str(count))
         GPIO.output(7, GPIO.HIGH)
