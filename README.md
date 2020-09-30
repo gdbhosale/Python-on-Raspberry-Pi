@@ -10,4 +10,6 @@ Online preview on http://dwij.net/tuts/python-rpi
 
 Please star the project for latest updates.
 
+Open for Suggestions
+
 All the best !!!
